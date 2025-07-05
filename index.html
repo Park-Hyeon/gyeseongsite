@@ -100,7 +100,7 @@
     let backStack = [];
     let forwardStack = [];
     let historyQueue = [];
-    let currentPage = null; // 메인 화면은 null 상태로 표현
+    let currentPage = null; 
 
     function navigateTo(name, url) {
       if (currentPage !== null || backStack.length === 0) {
@@ -112,7 +112,7 @@
       const now = new Date();
       const timeStr = now.toLocaleTimeString('ko-KR', { hour12: false });
       historyQueue.push({ name, time: timeStr });
-      if (historyQueue.length > 5) historyQueue.shift(); // 큐 특성: 5개 초과하면 앞에서 제거
+      if (historyQueue.length > 5) historyQueue.shift(); 
 
       render();
     }
@@ -144,6 +144,7 @@
           <div>
             <button class="btn" onclick="navigateTo('계성고등학교 홈페이지', 'https://gyeseong.sen.hs.kr/')">홈페이지</button>
             <button class="btn" onclick="navigateTo('계성고 대신전해드립니다', 'http://asked.kr/gyeseong_ask')">대신전해드립니다</button>
+            <button class="btn" onclick="navigateTo('계성고 리로스쿨', 'https://gyeseong.riroschool.kr/')">리로스쿨</button>
           </div>`;
       } else {
         pageDiv.innerHTML = `<h2>${currentPage.name}</h2>
