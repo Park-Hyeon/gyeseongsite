@@ -100,7 +100,7 @@
     let backStack = [];
     let forwardStack = [];
     let historyQueue = [];
-    let currentPage = null; 
+    let currentPage = null; // 메인 화면은 null 상태로 표현
 
     function navigateTo(name, url) {
       if (currentPage !== null || backStack.length === 0) {
@@ -112,7 +112,7 @@
       const now = new Date();
       const timeStr = now.toLocaleTimeString('ko-KR', { hour12: false });
       historyQueue.push({ name, time: timeStr });
-      if (historyQueue.length > 5) historyQueue.shift(); 
+      if (historyQueue.length > 5) historyQueue.shift(); // 큐 특성: 5개 초과하면 앞에서 제거
 
       render();
     }
